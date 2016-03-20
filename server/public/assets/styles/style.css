@@ -1,0 +1,40 @@
+.container{
+  background-color: grey;
+  maring:20px;
+}
+
+.btn{
+  float:right;
+}
+
+.Task-Submit{
+  float:none;
+}
+
+.container{
+  font-size: 1.25em;
+  border-radius:4px;
+}
+.sure{
+  display:none;
+}
+.task{
+  margin-right:20px;
+}
+.taskHead{
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.changeToUncompleted{
+  margin-top: 3px;
+}
+.changeToCompleted{
+  margin-top: 3px;
+}
+
+.completed{
+  text-decoration: line-through;
+  background-color: #d9d9d9;
+  opacity:.5;
+}

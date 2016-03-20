@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Super Cool Checklist</title>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/styles/style.css" />
+
+    <!-- SCRIPTS -->
+
+    <script type="text/javascript" src="/vendors/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/app.min.js"></script></head>
+  <body>
+    <div class="container-fluid">
+      <div class="row header">
+        <div class="col-lg-12 header-display">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="animal-input jumbotron">
+            <h1>Super Cool Checklist</h1>
+            <h4>Add a ToDo:</h4>
+            <form class="check-form" id="check-form">
+              <label>Task</label>
+              <input type="text" id="Task" name="Task"/>
+              <label>Description</label>
+              <input type="text" id="Description" name="Description"/>
+              <input type="submit" class="Task-Submit btn btn-secondary" />
+            </form>
+            <button class="clear btn btn-secondary">Clear Entire List</button>
+            <button class="sure btn btn-secondary">Are you Sure?</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="oldDB"></div>
+  </body>
+</html>

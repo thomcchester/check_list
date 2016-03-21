@@ -73,17 +73,13 @@ router.get("/oldTask", function(req,res){
 
 
 router.post("/change_to_completed", function(req,res){
-  console.log("Attempting to change");
-  console.log(req.body);
   pg.connect(connectionString, function(err, client, done){
     if(err){
       done();
-      console.log("not writing to db");
+      console.log("error bitch");
       res.status(300).send(err);
     }else{
-      console.log('booger');
       var result = [];
-      console.log("req.body", req.body.task);
       var query = client.query("UPDATE tasks SET complete=true WHERE task='"+req.body.task+"' AND description='"+req.body.description+"'");
 
 
@@ -148,6 +144,33 @@ router.get("/clearform", function(req,res){
       var result = [];
 
       var query = client.query('DELETE FROM tasks');
+      query.on('row', function(row){
+        result.push(row);
+        done();
+      });
+      query.on('error', function(err){
+        done();
+        console.log('Error running query: ' , err);
+        res.status(500).send(err);
+      });
+      query.on('end', function(end){
+        done();
+        res.send(result);
+      });
+    }
+  });
+});
+
+router.get("/completeThings", function(req,res){
+  pg.connect(connectionString, function(err, client, done){
+    if(err){
+      done();
+      console.log("not writing to db");
+      res.status(500).send(err);
+    }else{
+      var result = [];
+
+      var query = client.query('SELECT COUNT(task) FROM tasks where complete=true;');
       query.on('row', function(row){
         result.push(row);
         done();
